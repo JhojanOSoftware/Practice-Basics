@@ -30,7 +30,7 @@ function verificar(){
     document.getElementById("intentos").innerText = "Intentos: " + intentos;
 }
 
-function perder(){
+function perder(guess){
     if (intentos >= 2 && guess != random) {
         document.getElementById("final").style.color = "red";
     document.getElementById("final").innerText = `You lost buddy, the number was ${random}`;
