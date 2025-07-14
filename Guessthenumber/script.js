@@ -1,6 +1,7 @@
 let random = Math.floor(Math.random() * 5) + 1;
 let intentos = 0;
 function verificar(){
+    
     const guess  = (document.getElementById("guess").value);
     let result = '';
     if (!isNaN(guess) && guess >=1 && guess <=10) {
@@ -28,6 +29,9 @@ function verificar(){
     }
     document.getElementById("result").innerText = result;
     document.getElementById("intentos").innerText = "Intentos: " + intentos;
+    const intentoslistas = document.createElement("li");
+    intentoslistas.innerText = `Intento ${intentos}: ${result}`;
+    document.getElementById("historial").appendChild(intentoslistas);
 }
 
 function perder(guess){
@@ -46,4 +50,5 @@ function reiniciar(){
     document.getElementById("reiniciar").style.display = "none";
     intentos = 0;
     document.getElementById("intentos").innerText = "Intentos: 0";
+    document.getElementById("historial").innerText = '';
 }
