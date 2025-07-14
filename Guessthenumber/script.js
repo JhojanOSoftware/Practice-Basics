@@ -1,27 +1,32 @@
 let random = Math.floor(Math.random() * 5) + 1;
 let intentos = 0;
+let juegoterminado = false;
 function verificar(){
-    
-    const guess  = (document.getElementById("guess").value);
+    if (juegoterminado) return;
+    const guess  = parseInt(document.getElementById("guess").value);
     let result = '';
     if (!isNaN(guess) && guess >=1 && guess <=10) {
         if (guess < random){
             result= "Too low, Try Again";
              document.getElementById("result").style.color = "red";
              intentos++;
-             perder();
+             perder(guess);
 
         }else if (guess > random){
             result = "Too high, Try Again";
             document.getElementById("result").style.color = "red";
             intentos++;
-            perder();
+            perder(guess);
         }else { 
             result = "You got it buddy!";
             document.getElementById("reiniciar").style.display = "inline";
                         document.getElementById("result").style.color = "green";
+            juegoterminado = true;
 
         }
+    const intentoslistas = document.createElement("li");
+    intentoslistas.innerText = `Intento ${intentos}: ${result}`;
+    document.getElementById("historial").appendChild(intentoslistas);
     }else { 
         result = "Please enter a valid number";
                     document.getElementById("result").style.color = "red";
@@ -29,9 +34,7 @@ function verificar(){
     }
     document.getElementById("result").innerText = result;
     document.getElementById("intentos").innerText = "Intentos: " + intentos;
-    const intentoslistas = document.createElement("li");
-    intentoslistas.innerText = `Intento ${intentos}: ${result}`;
-    document.getElementById("historial").appendChild(intentoslistas);
+
 }
 
 function perder(guess){
@@ -40,6 +43,7 @@ function perder(guess){
     document.getElementById("final").innerText = `You lost buddy, the number was ${random}`;
     document.getElementById("guess").disabled = true;
     document.getElementById("reiniciar").style.display = "inline";
+    juegoterminado = true;
 }}
 
 function reiniciar(){
@@ -50,5 +54,6 @@ function reiniciar(){
     document.getElementById("reiniciar").style.display = "none";
     intentos = 0;
     document.getElementById("intentos").innerText = "Intentos: 0";
-    document.getElementById("historial").innerText = '';
+    document.getElementById("historial").innerHTML = '';
+    juegoterminado = false;
 }
