@@ -8,7 +8,7 @@
 <h1>Calcula el Promedio y más</h1>
 
 <label>Escribir Número:
-    <input id="Numero" type="number">
+    <input id="Numero" onkeydown="if(event.key === 'Enter'){agregar();}"   type="number">
 </label>
 <button onclick="agregar()">Agregar</button>
 <button onclick="limpiar()">Limpiar Todo</button>

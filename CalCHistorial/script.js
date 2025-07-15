@@ -12,9 +12,14 @@ function agregar() {
         const item =document.createElement("li");
         item.innerText= numero;
         document.getElementById("historial").appendChild(item);
+        let restantes = 5 - numeroslist.length;
+        document.getElementById('mensaje').innerText = `Quedan ${restantes} números por agregar`;
         if (numeroslist.length>= 5){
             document.getElementById("agregar").style.display = "none";
         }
+    } else {
+        document.getElementById("mensaje").innerText = "Por favor, ingresa un número válido";
+        document.getElementById("mensaje").style.color = "red";
     }
 }
 function calcular() {
@@ -32,8 +37,9 @@ function limpiar() {
     document.getElementById("historial").innerHTML = '';
     document.getElementById("Numero").value = '';
     document.getElementById("resultado").innerText = '';
-    document.getElementById("mensaje").innerText= '';
-    document.getElementById("agregar").disabled = false;
+    document.getElementById("mensaje").innerText= 'Puedes agregar hasta 5 números';
+    document.getElementById('mensaje').style.color = 'black';
+    document.getElementById("agregar").style.display = 'inline';
 
 
 }
