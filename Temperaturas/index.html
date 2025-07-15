@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Temperaturas</title>
+</head>
+<body>
+<h1>Conversor de Temperaturas</h1>
+
+<label>Escribir Temperatura:
+
+    <input id="numero" onkeydown="if(event.key === 'Enter'){convertir();}"   type="number" placeholder="Ingresa la temperatura">
+</label>
+<select  id="tipo">
+    <option value="Celsius">Celsius</option>
+    <option value="Fahrenheit">Fahrenheit</option>
+</select>
+<button onclick="convertir()">Convertir</button>
+<button onclick="limpiar()">Limpiar Todo</button>
+
+<p id="resultado"></p>
+<p id="mensaje"></p>
+
+<script src="script.js"></script>
+</body>
+</html>
