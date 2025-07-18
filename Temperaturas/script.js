@@ -23,7 +23,6 @@ function limpiar() {
     numeroslist = [];
     document.getElementById("numero").value = '';
     document.getElementById("resultado").innerText = '';
-    document.getElementById("mensaje").innerText= 'Puedes agregar hasta 5 números';
     document.getElementById('mensaje').style.color = 'black';
     document.getElementById("agregar").style.display = 'inline';
 
