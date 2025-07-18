@@ -39,15 +39,21 @@ function convertir() {
     if (celsius  <= 10 ){
         mensaje = '¡Hace frío!🧊';
         document.getElementById('mensaje').style.color = 'blue';
+            document.body.style.backgroundColor = '#b3d9ff'; // azul
+
 
     } else if (celsius > 10 && celsius <= 30){
         mensaje = '¡El clima es agradable!🌤️';
         document.getElementById('mensaje').style.color = 'green';
+            document.body.style.backgroundColor = '#d9ffd9'; // verde claro
+
 
     }
     else if (celsius > 30){
         mensaje = '¡Hace calor🔥!';
         document.getElementById('mensaje').style.color = 'red';
+            document.body.style.backgroundColor = '#ffd9d9'; // rojo claro
+
 
     }
     document.getElementById('mensaje').innerText = mensaje;
