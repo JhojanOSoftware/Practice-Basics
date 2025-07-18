@@ -9,9 +9,15 @@ function calcular() {
         let resultado = '';
         if (choice === 'Celsius') {
             let faren = (tempsuser * (9/5))  +32 ;
-            resultado = `${tempsuser} °C es igual a ${faren.toFixed(2)} °F`; ### falta parte de la conversion
+            resultado = `${tempsuser} °C es igual a ${faren.toFixed(2)} °F`;
+        } else if (choice === 'Fahrenheit') {
+            let celsius = (tempuser -32 ) * (5/9);
+            resultado = `${tempsuser} °F es igual a ${celsius.toFixed(2)} °C`;
+        } else {    
+            resultado = 'Por favor, selecciona una opción válida.';
         }
-
+        document.getElementById('resultado').innerText = resultado;
+    }
 }
 function limpiar() {
     numeroslist = [];
