@@ -1,6 +1,8 @@
-let tempsuser = document.getElementById("numero").value;
-let choice = document.getElementById("tipo").value;
-function calcular() {
+
+
+function convertir() {
+    let tempsuser = document.getElementById("numero").value;
+    let choice = document.getElementById("tipo").value;
     if (tempsuser.length === 0){
         return 0;
     }
