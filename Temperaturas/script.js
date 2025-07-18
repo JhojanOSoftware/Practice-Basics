@@ -6,6 +6,7 @@ function convertir() {
     let celsius = 0;
     let resultado = '';
     let mensaje = '';
+    tempsuser = tempsuser.replace(',', '.'); 
 
 
 
@@ -14,7 +15,7 @@ function convertir() {
         document.getElementById('mensaje').style.color = 'red';
         return 0;
     }
-    if (!isNaN(tempsuser) ) {
+    if (tempsuser.length === 0 || !isNaN(tempsuser) ) {
         tempsuser = parseFloat(tempsuser);
         document.getElementById('mensaje').innerText = '';
         if (choice === 'Celsius') {
@@ -24,7 +25,11 @@ function convertir() {
         } else if (choice === 'Fahrenheit') {
             celsius = (tempsuser -32 ) * (5/9);
             resultado = `${tempsuser} °F es igual a ${celsius.toFixed(2)} °C`;
-        } else {    
+         
+        } else if (choice === 'Kelvin') {
+            celsius = tempsuser - 273.15;
+            resultado = `${tempsuser} K es igual a ${celsius.toFixed(2)} °C`;
+        } else {
             resultado = 'Por favor, selecciona una opción válida.';
         }
         document.getElementById('resultado').innerText = resultado;
@@ -32,22 +37,31 @@ function convertir() {
 
 
     if (celsius  <= 10 ){
-        mensaje = '¡Hace frío!';
+        mensaje = '¡Hace frío!🧊';
+        document.getElementById('mensaje').style.color = 'blue';
 
     } else if (celsius > 10 && celsius <= 30){
-        mensaje = '¡El clima es agradable!';
+        mensaje = '¡El clima es agradable!🌤️';
+        document.getElementById('mensaje').style.color = 'green';
+
     }
     else if (celsius > 30){
-        mensaje = '¡Hace calor!';
+        mensaje = '¡Hace calor🔥!';
+        document.getElementById('mensaje').style.color = 'red';
+
     }
     document.getElementById('mensaje').innerText = mensaje;
+    const intentoslistas = document.createElement("li");
+    intentoslistas.innerText = `Temperatura agregada fue :${resultado}: ${mensaje}`;
+    document.getElementById("historial").appendChild(intentoslistas);
 }
 function limpiar() {
 
     document.getElementById("numero").value = '';
     document.getElementById("resultado").innerText = '';
     document.getElementById('mensaje').style.color = 'black';
-    document.getElementById("agregar").style.display = 'inline';
+    document.getElementById('mensaje').innerText = '';
+    document.getElementById('resultado').innerText = '';
 
 
 }

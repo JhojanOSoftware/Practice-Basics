@@ -9,18 +9,20 @@
 
 <label>Escribir Temperatura:
 
-    <input id="numero" onkeydown="if(event.key === 'Enter'){convertir();}"   type="number" placeholder="Ingresa la temperatura">
+    <input id="numero" onkeydown="if(event.key === 'Enter'){convertir();}"   type="string" placeholder="Ingresa la temperatura">
 </label>
 <select  id="tipo">
     <option value="Celsius">Celsius</option>
     <option value="Fahrenheit">Fahrenheit</option>
+    <option value="Kelvin">Kelvin</option>
 </select>
 <button onclick="convertir()">Convertir</button>
 <button onclick="limpiar()">Limpiar Todo</button>
 
-<p id="resultado">Posible Resultado</p>
-<p id="mensaje">Mensaje</p>
-
+<p id="resultado"></p>
+<p id="mensaje"></p>
+<h3>Historial de Intentos</h3>
+<ul id="historial"></ul>
 <script src="script.js"></script>
 </body>
 </html>
