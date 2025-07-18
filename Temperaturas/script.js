@@ -3,6 +3,12 @@
 function convertir() {
     let tempsuser = document.getElementById("numero").value;
     let choice = document.getElementById("tipo").value;
+    let celsius = 0;
+    let resultado = '';
+    let mensaje = '';
+
+
+
     if (tempsuser.length === 0){
         document.getElementById('mensaje').innerText = 'Por favor, ingresa un número.';
         document.getElementById('mensaje').style.color = 'red';
@@ -10,11 +16,9 @@ function convertir() {
     }
     if (!isNaN(tempsuser) ) {
         tempsuser = parseFloat(tempsuser);
-        let resultado = '';
-        let celsius = 0;
         document.getElementById('mensaje').innerText = '';
         if (choice === 'Celsius') {
-            celsius = tempsuser;
+            celsius =tempsuser;
             let faren = (tempsuser * (9/5))  +32 ;
             resultado = `${tempsuser} °C es igual a ${faren.toFixed(2)} °F`;
         } else if (choice === 'Fahrenheit') {
@@ -26,7 +30,6 @@ function convertir() {
         document.getElementById('resultado').innerText = resultado;
     }
 
-    let mensaje = '';
 
     if (celsius  <= 10 ){
         mensaje = '¡Hace frío!';
@@ -40,7 +43,7 @@ function convertir() {
     document.getElementById('mensaje').innerText = mensaje;
 }
 function limpiar() {
-    numeroslist = [];
+
     document.getElementById("numero").value = '';
     document.getElementById("resultado").innerText = '';
     document.getElementById('mensaje').style.color = 'black';
