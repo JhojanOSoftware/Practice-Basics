@@ -10,12 +10,12 @@ function convertir() {
 
 
 
-    if (tempsuser.length === 0){
-        document.getElementById('mensaje').innerText = 'Por favor, ingresa un número.';
+    if (tempsuser.length === 0  || isNaN(tempsuser) ) {
+        document.getElementById('mensaje').innerText = 'Por favor, ingresa un número valido ';
         document.getElementById('mensaje').style.color = 'red';
         return 0;
     }
-    if (tempsuser.length === 0 || !isNaN(tempsuser) ) {
+    if (tempsuser.length === 0 && !isNaN(tempsuser) ) {
         tempsuser = parseFloat(tempsuser);
         document.getElementById('mensaje').innerText = '';
         if (choice === 'Celsius') {
