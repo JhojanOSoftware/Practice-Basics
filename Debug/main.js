@@ -6,9 +6,9 @@ const usuarios = [
   { usuario: "admin", contraseña: "adminI@123" }   // Array with user objects
 ];
 function FindweakPass (password) {
-    const mayus = /[A-Z]/.test(password);  // test  Finds patterns in a string
-    const nunm   = /[0-9]/.test(password);
-    const Simbl = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const mayus = /[A-Z]/.test(password);  // test  Finds patterns in a string  // letters in uppercase
+    const nunm   = /[0-9]/.test(password);  // numbers
+    const Simbl = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // symbols
     return (
 
         password === "" ||   // Remember to use  "||"   for a logical OR 
